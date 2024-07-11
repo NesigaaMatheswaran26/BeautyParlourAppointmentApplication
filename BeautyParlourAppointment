@@ -1,0 +1,40 @@
+package com.beautyparlour;
+import java.util.List;
+
+public class BeautyParlourAppointment {
+     String customerName;
+     String appointmentDate;
+     String appointmentTime;
+     List<Service> services;
+
+    public BeautyParlourAppointment(String name, String date, String time, List<Service> services) {
+        customerName = name;
+        appointmentDate = date;
+        appointmentTime = time;
+        this.services = services;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public String getAppointmentDate() {
+        return appointmentDate;
+    }
+
+    public String getAppointmentTime() {
+        return appointmentTime;
+    }
+
+    public String getServicesAsString() {
+        StringBuilder sb = new StringBuilder();
+        for (Service service : services) {
+            sb.append(service.getServiceName()).append(", ");
+        }
+        if (sb.length() >= 2) {
+            return sb.substring(0, sb.length() - 2);
+        } else {
+            return "";
+        }
+    }
+}
